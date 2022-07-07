@@ -56,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.all(12.0),
               child: const Icon(
                 Icons.favorite_border,
-                color: _iconsColor(context),
+                color: ,
               ),
             ),
             NeumorphicButton(
@@ -83,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
-  Color? _iconsColor(BuildContext context) {
+  dynamic _iconsColor(BuildContext context) {
     final theme = NeumorphicTheme.of(context);
     if (theme!.isUsingDark) {
       return theme.current!.accentColor;
