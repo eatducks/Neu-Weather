@@ -9,64 +9,99 @@ class SavedPlaces extends StatefulWidget {
 }
 
 class _SavedPlacesState extends State<SavedPlaces> {
-
   @override
   Widget build(BuildContext context) {
-
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-
 
     return Scaffold(
       appBar: AppBar(title: const Text("Saved Places")),
       body: Container(
         height: height,
         width: width,
-        child: Column(
+        child: 
+        // Column(
+        //   mainAxisAlignment: MainAxisAlignment.center,
+        //   children: [
+        //     Text("Prova Dio Cane"),
+        //     Row(
+        //       mainAxisAlignment: MainAxisAlignment.center,
+        //       children: [
+        //         Text("data"),
+        //         Column(
+        //           mainAxisAlignment: MainAxisAlignment.center,
+        //           children: [Text("Proveh")],
+        //         )
+        //       ],
+        //     )
+        //   ],
+        // ),
+        Column(
+          // mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text("Your City"),
                   Text("giovedi, 23, 2022"),
                 ],
               ),
-              Column(
-                children: [
-                  TextButton(onPressed: null, child: Text("°F")),
+              Column(children: [
+                TextButton(onPressed: null, child: Text("°F")),
                   TextButton(onPressed: null, child: Text("°C")),
-                ],
-              )
+                
+              ],),
+                  
+              
             ],
           ),
-          Expanded(
-            child: ListView(
-              children: [SavedPlace(), SavedPlace(), SavedPlace(), SavedPlace()],
+          Row(
+          children: [
+            Column(
+              children: [
+                Icon(Icons.sunny),
+                Text("new York"),
+                Text(DateTime(DateTime.now().hour, DateTime.now().minute)
+                    .toString()),
+              ],
             ),
-          ),
+            Column(
+          children: [Expanded(child: Text("12°"))],
+        )
+          ],
+        )
+          // SavedPlace()
+          // Row(children: [Text("data")],)
+          //  Row(
+          //     children: [SavedPlace(), SavedPlace(), SavedPlace(), SavedPlace()],
+          //   ),
+
         ],
         ),
       ),
     );
   }
 
-  Widget SavedPlace() {
-    return Neumorphic(
-        child: Row(
+  Row SavedPlace() {
+    return 
+        Row(
           children: [
             Column(
               children: [
                 Icon(Icons.sunny),
                 Text("new York"),
-                Text(DateTime(DateTime.now().hour, DateTime.now().minute).toString()),
+                Text(DateTime(DateTime.now().hour, DateTime.now().minute)
+                    .toString()),
               ],
             ),
-            Column(children: [Expanded(child: Text("12°"))],)
+            Column(
+          children: [Expanded(child: Text("12°"))],
+        )
           ],
-        ),
-        style: NeumorphicStyle(
-            shape: NeumorphicShape.convex,
-            boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(10))));
+        );
   }
 }
