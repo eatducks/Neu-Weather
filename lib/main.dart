@@ -40,6 +40,11 @@ class _MyHomePageState extends State<MyHomePage> {
     
     return Scaffold(
       // appBar:  AppBar(title: const Text("Neumorphic Weather")),
+      floatingActionButton: NeumorphicFloatingActionButton(
+        child: const Icon(Icons.add, size: 30),
+        onPressed: () {},
+      ),
+      backgroundColor: NeumorphicTheme.baseColor(context),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -49,18 +54,18 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 debugPrint("onClick");
               },
-              style: const  NeumorphicStyle(
+              style: const NeumorphicStyle(
                 shape: NeumorphicShape.flat,
                 boxShape: NeumorphicBoxShape.circle(),
               ),
               padding: const EdgeInsets.all(12.0),
-              child: const Icon(
+              child: Icon(
                 Icons.favorite_border,
-                color: ,
+                color: _iconsColor(context),
               ),
             ),
             NeumorphicButton(
-                margin: EdgeInsets.only(top: 12),
+                margin: const EdgeInsets.only(top: 12),
                 onPressed: () {
                   NeumorphicTheme.of(context)!.themeMode =
                       NeumorphicTheme.isUsingDark(context)
@@ -83,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
-  dynamic _iconsColor(BuildContext context) {
+  Color? _iconsColor(BuildContext context) {
     final theme = NeumorphicTheme.of(context);
     if (theme!.isUsingDark) {
       return theme.current!.accentColor;
