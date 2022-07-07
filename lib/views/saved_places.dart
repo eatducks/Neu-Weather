@@ -11,97 +11,74 @@ class SavedPlaces extends StatefulWidget {
 class _SavedPlacesState extends State<SavedPlaces> {
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
-
     return Scaffold(
       appBar: AppBar(title: const Text("Saved Places")),
-      body: Container(
-        height: height,
-        width: width,
-        child: 
-        // Column(
-        //   mainAxisAlignment: MainAxisAlignment.center,
-        //   children: [
-        //     Text("Prova Dio Cane"),
-        //     Row(
-        //       mainAxisAlignment: MainAxisAlignment.center,
-        //       children: [
-        //         Text("data"),
-        //         Column(
-        //           mainAxisAlignment: MainAxisAlignment.center,
-        //           children: [Text("Proveh")],
-        //         )
-        //       ],
-        //     )
-        //   ],
-        // ),
-        Column(
+      floatingActionButton: NeumorphicFloatingActionButton(child: Icon(Icons.add),),
+      body: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Column(
           // mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("Your City"),
-                  Text("giovedi, 23, 2022"),
-                ],
-              ),
-              Column(children: [
-                TextButton(onPressed: null, child: Text("°F")),
-                  TextButton(onPressed: null, child: Text("°C")),
-                
-              ],),
-                  
-              
-            ],
-          ),
-          Row(
           children: [
-            Column(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.sunny),
-                Text("new York"),
-                Text(DateTime(DateTime.now().hour, DateTime.now().minute)
-                    .toString()),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Text("Your City"),
+                    Text("giovedi, 23, 2022"),
+                  ],
+                ),
+                Expanded(child: SizedBox()),
+                TextButton(onPressed: null, child: Text("°F")),
+                TextButton(onPressed: null, child: Text("°C")),
+                
               ],
             ),
-            Column(
-          children: [Expanded(child: Text("12°"))],
-        )
+            SavedPlace(),
+            SavedPlace(),
+            SavedPlace(),
+            SavedPlace(),
+            SavedPlace(),
+            SavedPlace(),
           ],
-        )
-          // SavedPlace()
-          // Row(children: [Text("data")],)
-          //  Row(
-          //     children: [SavedPlace(), SavedPlace(), SavedPlace(), SavedPlace()],
-          //   ),
-
-        ],
         ),
       ),
     );
   }
 
-  Row SavedPlace() {
-    return 
-        Row(
+  Widget SavedPlace() {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
+      child: Neumorphic(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Column(
-              children: [
-                Icon(Icons.sunny),
-                Text("new York"),
-                Text(DateTime(DateTime.now().hour, DateTime.now().minute)
-                    .toString()),
-              ],
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(Icons.sunny),
+                  const Text("New York"),
+                  Text(DateTime.now().hour.toString() +
+                      ":" +
+                      DateTime.now().minute.toString()),
+                ],
+              ),
             ),
-            Column(
-          children: [Expanded(child: Text("12°"))],
-        )
+                  Expanded(child: SizedBox()),
+
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                children: const [Text("12°")],
+              ),
+            )
           ],
-        );
+        ),
+      ),
+    );
   }
 }
