@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 void main() {
@@ -54,9 +53,15 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 debugPrint("onClick");
               },
+              tooltip: "",
+              pressed: true,
+              // drawSurfaceAboveChild: true,
+              // minDistance: -100,
+              // duration: const Duration(microseconds: 1000),
               style: const NeumorphicStyle(
                 shape: NeumorphicShape.flat,
                 boxShape: NeumorphicBoxShape.circle(),
+                depth: 3,
               ),
               padding: const EdgeInsets.all(12.0),
               child: Icon(
